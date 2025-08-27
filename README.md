@@ -16,11 +16,10 @@ Cette application permet aux serveurs de gérer les commandes de manière effica
 ## 📸 Captures d'écran
 _Ajoutez ici des captures d'écran de votre projet :_
 
-![page principale](path/to/screenshot1.png)
-![page de commande](path/to/screenshot2.png)
-![Capture 2](path/to/screenshot2.png)
-![Capture 2](path/to/screenshot2.png)
-![Capture 2](path/to/screenshot2.png)
-![Capture 2](path/to/screenshot2.png)
+![page principale](https://github.com/belhadj-yahya/waiter-admin-app/blob/8c3666a0e6e96692a533255f86b5919d760c8d40/Screenshot%202025-08-27%20151114.png)
+![page de commande](https://github.com/belhadj-yahya/waiter-admin-app/blob/8c3666a0e6e96692a533255f86b5919d760c8d40/Screenshot%202025-08-27%20151055.png)
+![détails de la commande](https://github.com/belhadj-yahya/waiter-admin-app/blob/8c3666a0e6e96692a533255f86b5919d760c8d40/Screenshot%202025-08-27%20151137.png)
+![page d'administration](https://github.com/belhadj-yahya/waiter-admin-app/blob/8c3666a0e6e96692a533255f86b5919d760c8d40/Screenshot%202025-08-27%20151220.png)
+
 
 
