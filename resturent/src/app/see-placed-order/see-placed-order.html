@@ -1,0 +1,28 @@
+<header>
+    <h2>Order details</h2>
+    <button (click)="back_home()">Back to tables</button>
+</header>
+<section>
+    <div class="card">
+        <div class="order_info">
+            <h3>Table Name: {{ order.order?.table_name }}</h3>
+            <p>Order Status: {{ order.order?.order_status  }}</p>
+            <p>Order Id: {{ order.order?.order_id }}</p>
+        </div>
+        <div class="order_status">
+            <div *ngFor="let item of order.order_details;let i = index">
+                <p>dish name: {{ item?.item_name }}</p>
+                <p>amount of dish: {{ item?.item_amount }}</p>
+                <p>dish price: {{ item?.item_price }}</p>
+                <p>price: {{ (item?.item_price * item?.item_amount).toFixed(2) }}</p>
+            </div>
+            <h1>Total Order: {{total_price.toFixed(2)}}$</h1>
+        </div>
+    </div>
+    <div>
+        <button (click)="change_status_of_order({order_id:order.order.order_id,new_status:'pending',table_id:order.order.table_id})">Place Order as Pending</button>
+        <button (click)="change_status_of_order({order_id:order.order.order_id,new_status:'canceled',table_id:order.order.table_id})">Place Order as Canceled</button>
+        <button (click)="change_status_of_order({order_id:order.order.order_id,new_status:'done',table_id:order.order.table_id})">Place Order as Done</button>
+    </div>
+    <button (click)="add_items_to_order(order.order?.table_id,order.order?.order_id)">Edite Order</button>
+</section>

@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #111; 
+  color: #f5f5f5; 
+  min-height: 78.5vh;
+}
+
+header {
+  background: #1a1a1a; 
+  padding: 20px;
+  border-bottom: 2px solid #333;
+}
+header .first_part {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .first_part h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: #fff;
+}
+
+header .first_part p {
+  margin: 2px 0 0;
+  color: #bbb;
+  font-size: 0.95rem;
+}
+
+header .first_part button {
+  background: transparent;
+  border: 1px solid #f5f5f5;
+  color: #f5f5f5;
+  padding: 8px 16px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+header .first_part button:hover {
+  background: #f5f5f5;
+  color: #111;
+}
+header .second_part {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+header .second_part p {
+  margin: 0;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+header .second_part button {
+  background: #222;
+  border: 1px solid #555;
+  padding: 6px 14px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+header .second_part button:hover {
+  background: #fff;
+  color: #111;
+}
+
+.before_tables {
+  text-align: center;
+  padding: 30px 0 10px;
+}
+
+.before_tables p:first-child {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.before_tables p:last-child {
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
+.tables {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.table {
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+  border: 1px solid #333;
+}
+
+.table:hover {
+  transform: translateY(-5px);
+  background: #2a2a2a;
+}
+
+.table h2 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.table p {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.table .free {
+  color: #00ff99; 
+}
+
+.table .not_free {
+  color: #ff4d4d; 
+}

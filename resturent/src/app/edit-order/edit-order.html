@@ -1,0 +1,36 @@
+<header>
+    <div>
+        <button (click)="go_back()">back to tables</button>
+    </div>
+    <div>
+        <h2>Order ID to edite{{data_holder.new_items_for_order()?.order_id}}</h2>
+        <p>Edit Order</p>
+    </div>
+</header>
+<section>
+    <div class="right_side">
+        <div *ngFor="let item of data_holder.items();let i = index">
+            <h3>{{ item.item_name }}</h3>
+            <p>{{ item.descrption }}</p>
+            <p>{{ item.item_price }}</p>
+            <div class="buttons">
+                <button *ngIf="in_order(item.item_id)" (click)="add_item(item,-1)">-</button>
+                <p *ngIf="in_order(item.item_id)"> {{display_order_item_amount(item.item_id)}}</p>
+                <button (click)="add_item(item,+1)">+</button>
+            </div>
+        </div>
+    </div>
+    <div class="left_side">
+        <h1>Order Items</h1>
+        <div *ngIf="data_holder.order().length >= 1">
+            <div class="order_item" *ngFor="let item of data_holder.order();let i = index">
+
+                <h2 *ngIf="typeof item !== 'number'">{{ item.item_name }}</h2>
+                <p *ngIf="typeof item !== 'number'">{{ item.item_price}} x {{item.item_amount}} = {{item.item_price * item.item_amount}}</p>
+            </div>
+            <div>
+                <button class="place_changes" (click)="Edit_order()">Place Changes to order</button>
+            </div>
+        </div>
+    </div>
+</section>

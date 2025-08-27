@@ -1,0 +1,70 @@
+<header class="admin-header">
+  <h1>ADMIN PAGE</h1>
+  <button (click)="log_out()">Log Out</button>
+</header>
+
+<section class="admin-section">
+  <div class="items">
+    <div *ngFor="let item of data_holder.items()">
+      <div *ngIf="editing_item_id !== item.item_id" class="item-card">
+        <h3>{{ item.item_name }}</h3>
+        <p>{{ item.descrption }}</p>
+        <p>Price: ${{ item.item_price }}</p>
+        <button class="edit-btn" (click)="editItem(item)">Edit</button>
+      </div>
+
+      <div *ngIf="editing_item_id === item.item_id" class="item-card edit-form">
+        <form [formGroup]="editForm" (ngSubmit)="saveEdit(item)" class="edit-form-container">
+          <label>
+            Name:
+            <input type="text" formControlName="item_name" class="form-input">
+          </label>
+          <label>
+            Description:
+            <input type="text" formControlName="descrption" class="form-input">
+          </label>
+          <label>
+            Price:
+            <input type="text" formControlName="item_price" class="form-input">
+          </label>
+          <div class="edit-form-buttons">
+            <button type="submit" [disabled]="editForm.invalid" class="save-btn">Save</button>
+            <button type="button" (click)="cancelEdit()" class="cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="orders">
+    <div class="search-orders">
+      <form [formGroup]="date_form" (submit)="search_for_orders()" class="search-form">
+        <input type="date" formControlName="date" class="form-input">
+        <div *ngIf="date_form.get('date') as date" class="error-messages">
+          <p *ngIf="date.touched && date.errors?.['required']">Date is required to search for orders</p>
+        </div>
+        <input type="submit" value="Search" class="submit-btn">
+      </form>
+      <p class="date_of_search">Orders of {{ date_of_order() }}</p>
+    </div>
+
+    <div class="orders-container">
+      <div class="order-card" *ngFor="let o of order()">
+        <div class="order-header">
+          <h3>Order #{{ o.order.order_id }}</h3>
+          <p>Table: {{ o.order.table_name }} (ID: {{ o.order.table_id }})</p>
+          <p>Status: {{ o.order.order_status }}</p>
+        </div>
+        <ul class="order-items">
+          <li *ngFor="let item of o.order_details">
+            <span class="item-name">{{ item.item_name }} : {{ item.item_amount }} x </span>
+            <span class="item-subtotal">{{ item.item_price * item.item_amount | number:'1.2-2' }}</span>
+          </li>
+        </ul>
+        <div class="order-total">
+          Total: {{ o.total_price | number:'1.2-2' }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

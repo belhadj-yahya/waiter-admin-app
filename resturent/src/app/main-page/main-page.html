@@ -1,0 +1,29 @@
+<header>
+    <div class="first_part">
+        <div>
+            <h1>Restaurant Manager</h1>
+            <p>Waiter Dashboard</p>
+        </div>
+        <div>
+            <button (click)="go_to_login()">Admin dashboard</button>
+        </div>
+    </div>
+    <div class="second_part">
+        <p>Avilable: {{ data_holder.tables_free() }}</p>
+        <p>Occupied: {{ data_holder.not_free_tables() }}</p>
+    </div> 
+</header>
+<body>
+    <section>
+<div class="before_tables">
+    <p>Restaurant Tables</p>
+    <p>Click on a table to manage orders</p>
+</div>
+<div class="tables">
+    <div  class="table" *ngFor="let table of data_holder.tables(); let i = index" (click)="place_order_start(i,table.table_id)">
+        <h2>{{table.table_name}}</h2>
+        <p [ngClass]="{'free': table.table_status === 'free', 'not_free': table.table_status !== 'free'}">{{  table.table_status === 'free' ? 'Avilable' : 'Occupied' }}</p>
+    </div>
+</div>
+</section>
+</body>

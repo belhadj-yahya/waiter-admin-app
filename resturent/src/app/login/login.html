@@ -1,0 +1,27 @@
+<div class="login-container">
+  <button routerLink="/">Go Back to tables</button>
+
+  <form [formGroup]="log_in_form" (submit)="handle_submit()" method="post" class="login-card">
+    <div>
+      <label for="user_email">Email:</label>
+      <input type="text" formControlName="user_email" id="user_email">
+      <div *ngIf="log_in_form.get('user_email') as email">
+        <p *ngIf="email.touched && email.errors?.['required']">Email is required</p>
+        <p *ngIf="email.touched && email.errors?.['email']">Must be a valid email address</p>
+      </div>
+    </div>
+
+    <div>
+      <label for="user_password">Password:</label>
+      <input type="password" formControlName="user_password" id="user_password">
+      <div *ngIf="log_in_form.get('user_password') as Password">
+        <p *ngIf="Password.touched && Password.errors?.['required']">Password is required</p>
+      </div>
+    </div>
+
+    <div>
+      <input type="submit" value="Log in">
+      <p *ngIf="message_error() !== null">{{message_error()}}</p>
+    </div>
+  </form>
+</div>
